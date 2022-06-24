@@ -7,8 +7,8 @@ package at.toBinio;
  */
 
 public class Timer {
-    private long startNano = -1;
     private final String name;
+    private SubTimer total;
 
     public Timer(String name, boolean start) {
         this.name = name;
@@ -22,20 +22,50 @@ public class Timer {
 
     public void start() {
 
-        if (startNano != -1) throw new TimerException(String.format("%s is already started", getTimerPrefix()));
+        if (total != null) throw new TimerException(String.format("%s is already started", getTimerPrefix()));
 
-        startNano = System.nanoTime();
+        total = new SubTimer("total");
 
-        System.out.printf("%s started%n", getTimerPrefix());
+        System.out.printf("%s began%n", getTimerPrefix());
+    }
+
+    public void begin() {
+        start();
+    }
+
+    public void startSubTimer(String name) {
+        if (total == null) throw new TimerException(String.format("%s was never started", getTimerPrefix()));
+
+        total.startSubTimer(name, 1);
+    }
+
+    public void beginSubTimer(String name) {
+        startSubTimer(name);
     }
 
     public void stop() {
-        if (startNano == -1) throw new TimerException(String.format("%s was never started", getTimerPrefix()));
+        if (total == null) throw new TimerException(String.format("%s was never started", getTimerPrefix()));
 
-        long nano = (System.nanoTime() - startNano);
-        startNano = -1;
+        total.stop();
 
-        System.out.printf("%s stopped%n total: %s%n", getTimerPrefix(), nanoToString(nano));
+        System.out.printf("%s ended%n", getTimerPrefix());
+        total.print(1);
+
+        total = null;
+    }
+
+    public void end() {
+        stop();
+    }
+
+    public void stopSubTimer() {
+        if (total == null) throw new TimerException(String.format("%s was never started", getTimerPrefix()));
+
+        total.stopSubTimer(1);
+    }
+
+    public void endSubTimer() {
+        stopSubTimer();
     }
 
     private String getTimerPrefix() {

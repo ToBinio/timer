@@ -1,4 +1,6 @@
-package at.toBinio;
+package at.toBinio.timer;
+
+import at.toBinio.TimerException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +11,14 @@ import java.util.List;
  * @author Tobias Frischmann
  */
 
-public class SubTimer {
+class SubTimer {
     private long startNano = -1;
     private long time;
 
     private final String name;
     private SubTimer activeSubTimer;
 
-    private List<SubTimer> subTimers;
+    private final List<SubTimer> subTimers;
 
     public SubTimer(String name) {
         this.name = name;
@@ -75,7 +77,7 @@ public class SubTimer {
     }
 
     public void print(int depth) {
-        System.out.println(" ".repeat(depth * 2) + name + " - " + Timer.nanoToString(time));
+        System.out.println(" ".repeat(depth * 2) + name + " - " + BasicTimer.nanoToString(time));
         for (SubTimer subTimer : subTimers) {
             subTimer.print(depth + 1);
         }

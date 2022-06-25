@@ -1,5 +1,7 @@
 package at.toBinio;
 
+import at.toBinio.avgTimer.AvgTimer;
+
 /**
  * Created: ${DATE}
  *
@@ -7,20 +9,14 @@ package at.toBinio;
  */
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        Timer test = new Timer("test", true);
+        AvgTimer cool = new AvgTimer("cool");
 
-        test.startSubTimer("1.0");
-        test.startSubTimer("2.0");
-        test.stopSubTimer();
-        test.startSubTimer("2.1");
-        test.startSubTimer("3");
-        test.stopSubTimer();
-        test.stopSubTimer();
-        test.stopSubTimer();
-        test.startSubTimer("1.1");
-        test.stopSubTimer();
-        test.stop();
+        for (int i = 0; i < 100; i++) {
+            cool.start();
+            Thread.sleep(200);
+            cool.stop();
+        }
     }
 }

@@ -1,4 +1,7 @@
-package at.toBinio;
+package at.toBinio.timer;
+
+import at.toBinio.NamedTimer;
+import at.toBinio.TimerException;
 
 /**
  * Created: 22.06.2022
@@ -6,18 +9,17 @@ package at.toBinio;
  * @author Tobias Frischmann
  */
 
-public class Timer {
-    private final String name;
+public class BasicTimer extends NamedTimer {
     private SubTimer total;
 
-    public Timer(String name, boolean start) {
-        this.name = name;
+    public BasicTimer(String name, boolean start) {
+        super(name);
         if (start)
             start();
     }
 
-    public Timer(String name) {
-        this(name, false);
+    public BasicTimer(String name) {
+        this(name, true);
     }
 
     public void start() {
@@ -27,10 +29,6 @@ public class Timer {
         total = new SubTimer("total");
 
         System.out.printf("%s began%n", getTimerPrefix());
-    }
-
-    public void begin() {
-        start();
     }
 
     public void startSubTimer(String name) {
@@ -54,10 +52,6 @@ public class Timer {
         total = null;
     }
 
-    public void end() {
-        stop();
-    }
-
     public void stopSubTimer() {
         if (total == null) throw new TimerException(String.format("%s was never started", getTimerPrefix()));
 
@@ -66,31 +60,5 @@ public class Timer {
 
     public void endSubTimer() {
         stopSubTimer();
-    }
-
-    private String getTimerPrefix() {
-        return "Timer-" + name;
-    }
-
-    public static String nanoToString(long timeDif) {
-        double first = timeDif;
-        TimeUnit firstTimeUnit = TimeUnit.NANO_SECOND;
-
-        double second = 0;
-        TimeUnit secondTimeUnit = TimeUnit.NANO_SECOND;
-
-        for (int i = 1; i < TimeUnit.values().length; i++) {
-            TimeUnit value = TimeUnit.values()[i];
-
-            if (first / value.multiplayerToLover < 1) break;
-
-            second = first % value.multiplayerToLover;
-            secondTimeUnit = firstTimeUnit;
-
-            first = first / value.multiplayerToLover;
-            firstTimeUnit = value;
-        }
-
-        return String.format("%.0f%s %.0f%s", first, firstTimeUnit.shortName, second, secondTimeUnit.shortName);
     }
 }

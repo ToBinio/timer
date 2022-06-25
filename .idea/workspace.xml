@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c6aaef-578e-4df6-b08e-dbe931c82e8c" name="Changes" comment="adding DistributionManagement">
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/toBinio/SubTimer.java" afterDir="false" />
+    <list default="true" id="67c6aaef-578e-4df6-b08e-dbe931c82e8c" name="Changes" comment="adding SubTimer system">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/toBinio/NamedTimer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/toBinio/avgTimer/AvgTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/toBinio/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/toBinio/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/toBinio/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/toBinio/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/toBinio/SubTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/toBinio/timer/SubTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/toBinio/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/toBinio/timer/BasicTimer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +43,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/tobia/OneDrive/Desktop/Schule2021/Pos/Intellij&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -53,12 +57,12 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="at.toBinio.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.toBinio.Main" />
       <module name="timer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="at.toBinio.*" />
+          <option name="PATTERN" value="at.toBinio.timer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,7 +72,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.at.toBinio.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -82,7 +86,11 @@
       <updated>1655994401016</updated>
       <workItem from="1655994402825" duration="334000" />
       <workItem from="1656013231977" duration="1612000" />
-      <workItem from="1656051594907" duration="724000" />
+      <workItem from="1656051594907" duration="803000" />
+      <workItem from="1656080494397" duration="423000" />
+      <workItem from="1656151802372" duration="965000" />
+      <workItem from="1656154522003" duration="96000" />
+      <workItem from="1656154705731" duration="143000" />
     </task>
     <task id="LOCAL-00001" summary="adding DistributionManagement">
       <created>1655994571548</created>
@@ -91,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655994571548</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding SubTimer system">
+      <created>1656052348941</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656052348941</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +125,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding DistributionManagement" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding DistributionManagement" />
+    <MESSAGE value="adding SubTimer system" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding SubTimer system" />
   </component>
 </project>
